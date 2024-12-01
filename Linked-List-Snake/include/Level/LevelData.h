@@ -5,11 +5,11 @@ namespace Level
 {
 	struct LevelData
 	{
-		/*LevelData(LevelNumber ind)
+		LevelData(LevelNumber ind)
 		{
 			level_index = ind;
 		}
 
-		LevelNumber level_index;*/
+		LevelNumber level_index;
 	};
 }

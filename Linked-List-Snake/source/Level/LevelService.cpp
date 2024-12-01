@@ -1,8 +1,12 @@
 #include "../../include/Level/LevelService.h"
 #include "../../include/Level/LevelController.h"
+#include "../../include/Global/ServiceLocator.h"
+#include "../../include/Level/LevelModel.h"
 
 namespace Level
 {
+	using namespace Global;
+
 	LevelService::LevelService()
 	{
 		level_controller = nullptr;
