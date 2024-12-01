@@ -11,6 +11,9 @@ namespace Player
 		BodyPart();
 		~BodyPart();
 
+		void initialize(float width, float height, sf::Vector2i pos, Direction dir);
+		void render();
+
 	protected:
 		UI::UIElement::ImageView* bodypart_image;
 
@@ -19,5 +22,11 @@ namespace Player
 
 		float bodypart_width;
 		float bodypart_height;
+
+		void createBodyPartImage();
+		void initializeBodyPartImage();
+		sf::Vector2f getBodyPartScreenPosition();
+
+		void destroy();
 	};
 }
