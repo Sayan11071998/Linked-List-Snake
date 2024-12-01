@@ -8,15 +8,9 @@ namespace Level
     using namespace UI::UIElement;
     using namespace Global;
 
-    LevelView::LevelView()
-    {
-        createViews();
-    }
+    LevelView::LevelView() { createViews(); }
 
-    LevelView::~LevelView()
-    {
-        destroy();
-    }
+    LevelView::~LevelView() { destroy(); }
 
     void LevelView::createViews()
     {
@@ -34,7 +28,6 @@ namespace Level
     void LevelView::initializeBackground()
     {
         sf::RenderWindow* game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-
         sf::Vector2f background_size = sf::Vector2f(game_window->getSize().x, game_window->getSize().y);
 
         background_rectangle->initialize(background_size, sf::Vector2f(0, 0), 0, background_color);
@@ -44,7 +37,6 @@ namespace Level
     void LevelView::initializeBorder()
     {
         sf::RenderWindow* game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-
         sf::Vector2f border_size = sf::Vector2f(grid_width, grid_height);
         sf::Vector2f border_position = sf::Vector2f(border_offset_left, border_offset_top);
 
@@ -78,13 +70,7 @@ namespace Level
         border_rectangle->render();
     }
 
-    float LevelView::getGridWidth()
-    {
-        return grid_width;
-    }
+    float LevelView::getGridWidth() { return grid_width; }
 
-    float LevelView::getGridHeight()
-    {
-        return grid_height;
-    }
+    float LevelView::getGridHeight() { return grid_height; }
 }

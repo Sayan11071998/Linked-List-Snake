@@ -24,10 +24,7 @@ namespace UI
             createImage();
         }
 
-        LevelSelectionUIController::~LevelSelectionUIController()
-        {
-            destroy();
-        }
+        LevelSelectionUIController::~LevelSelectionUIController() { destroy(); }
 
         void LevelSelectionUIController::initialize()
         {
@@ -36,10 +33,7 @@ namespace UI
             registerButtonCallback();
         }
 
-        void LevelSelectionUIController::createImage()
-        {
-            background_image = new ImageView();
-        }
+        void LevelSelectionUIController::createImage() { background_image = new ImageView(); }
 
         void LevelSelectionUIController::createButtons()
         {

@@ -53,9 +53,7 @@ namespace UI
         void AnimatedImageView::handleAnimationProgress()
         {
             if (elapsed_duration >= animation_duration && callback_function)
-            {
                 callback_function();
-            }
         }
 
         void AnimatedImageView::updateAnimation()
@@ -71,15 +69,9 @@ namespace UI
             }
         }
 
-        void AnimatedImageView::setAnimationDuration(float duration)
-        {
-            animation_duration = duration;
-        }
+        void AnimatedImageView::setAnimationDuration(float duration) { animation_duration = duration; }
 
-        void AnimatedImageView::setAnimationType(AnimationType type)
-        {
-            animation_type = type;
-        }
+        void AnimatedImageView::setAnimationType(AnimationType type) { animation_type = type; }
 
         void AnimatedImageView::fadeIn()
         {

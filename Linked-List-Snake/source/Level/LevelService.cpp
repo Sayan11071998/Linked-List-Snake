@@ -10,19 +10,12 @@ namespace Level
 	LevelService::LevelService()
 	{
 		level_controller = nullptr;
-
 		createLevelController();
 	}
 
-	LevelService::~LevelService()
-	{
-		destroy();
-	}
+	LevelService::~LevelService() { destroy(); }
 
-	void LevelService::createLevelController()
-	{
-		level_controller = new LevelController();
-	}
+	void LevelService::createLevelController() { level_controller = new LevelController(); }
 
 	void LevelService::spawnPlayer()
 	{
@@ -50,8 +43,5 @@ namespace Level
 		spawnPlayer();
 	}
 
-	void LevelService::destroy()
-	{
-		delete level_controller;
-	}
+	void LevelService::destroy() { delete level_controller; }
 }

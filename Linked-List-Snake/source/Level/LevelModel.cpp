@@ -12,13 +12,7 @@ namespace Level
 		cell_height = height / number_of_rows;
 	}
 
-	float LevelModel::getCellWidth()
-	{
-		return cell_width;
-	}
+	float LevelModel::getCellWidth() { return cell_width; }
 
-	float LevelModel::getCellHeight()
-	{
-		return cell_height;
-	}
+	float LevelModel::getCellHeight() { return cell_height; }
 }

@@ -20,6 +20,7 @@ namespace Player
 		SnakeController* snake_controller;
 
 		void createController();
+		
 		void destroy();
 	};
 }

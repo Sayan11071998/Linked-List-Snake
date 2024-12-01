@@ -23,10 +23,7 @@ namespace UI
             createText();
         }
 
-        InstructionsScreenUIController::~InstructionsScreenUIController()
-        {
-            destroy();
-        }
+        InstructionsScreenUIController::~InstructionsScreenUIController() { destroy(); }
 
         void InstructionsScreenUIController::initialize()
         {
@@ -36,22 +33,14 @@ namespace UI
             registerButtonCallback();
         }
 
-        void InstructionsScreenUIController::createImage()
-        {
-            background_image = new ImageView();
-        }
+        void InstructionsScreenUIController::createImage() { background_image = new ImageView(); }
 
-        void InstructionsScreenUIController::createButtons()
-        {
-            menu_button = new ButtonView();
-        }
+        void InstructionsScreenUIController::createButtons() { menu_button = new ButtonView(); }
 
         void InstructionsScreenUIController::createText()
         {
             for (int i = 0; i < number_of_instructions; i++)
-            {
                 instructions_text_list.push_back(new TextView());
-            }
         }
 
         void InstructionsScreenUIController::initializeBackgroundImage()
@@ -100,9 +89,7 @@ namespace UI
             menu_button->update();
 
             for (int i = 0; i < instructions_text_list.size(); i++)
-            {
                 instructions_text_list[i]->update();
-            }
         }
 
         void InstructionsScreenUIController::render()
@@ -111,9 +98,7 @@ namespace UI
             menu_button->render();
 
             for (int i = 0; i < instructions_text_list.size(); i++)
-            {
                 instructions_text_list[i]->render();
-            }
         }
 
         void InstructionsScreenUIController::show()
@@ -122,9 +107,7 @@ namespace UI
             menu_button->show();
 
             for (int i = 0; i < instructions_text_list.size(); i++)
-            {
                 instructions_text_list[i]->show();
-            }
         }
 
         void InstructionsScreenUIController::destroy()
@@ -133,9 +116,7 @@ namespace UI
             delete (menu_button);
 
             for (int i = 0; i < instructions_text_list.size(); i++)
-            {
                 delete (instructions_text_list[i]);
-            }
         }
     }
 }

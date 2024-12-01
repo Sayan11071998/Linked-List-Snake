@@ -29,35 +29,17 @@ namespace UI
 			UIView::render();
 
 			if (ui_state == UIState::VISIBLE)
-			{
 				game_window->draw(rectangle_shape);
-			}
 		}
 
-		void RectangleShapeView::setSize(sf::Vector2f rectangle_size)
-		{
-			rectangle_shape.setSize(rectangle_size);
-		}
+		void RectangleShapeView::setSize(sf::Vector2f rectangle_size) { rectangle_shape.setSize(rectangle_size); }
 
-		void RectangleShapeView::setPosition(sf::Vector2f rectangle_position)
-		{
-			rectangle_shape.setPosition(rectangle_position);
-		}
+		void RectangleShapeView::setPosition(sf::Vector2f rectangle_position) { rectangle_shape.setPosition(rectangle_position); }
 
-		void RectangleShapeView::setFillColor(sf::Color fill_color)
-		{
-			rectangle_shape.setFillColor(fill_color);
-		}
+		void RectangleShapeView::setFillColor(sf::Color fill_color) { rectangle_shape.setFillColor(fill_color); }
 
-		void RectangleShapeView::setOutlineColor(sf::Color outline_color)
-		{
-			rectangle_shape.setOutlineColor(outline_color);
-		}
+		void RectangleShapeView::setOutlineColor(sf::Color outline_color) { rectangle_shape.setOutlineColor(outline_color); }
 
-		void RectangleShapeView::setOutlineThickness(int outline_thickness)
-		{
-			rectangle_shape.setOutlineThickness(outline_thickness);
-		}
-
+		void RectangleShapeView::setOutlineThickness(int outline_thickness) { rectangle_shape.setOutlineThickness(outline_thickness); }
 	}
 }

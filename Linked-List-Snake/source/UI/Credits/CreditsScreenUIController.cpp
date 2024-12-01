@@ -22,10 +22,7 @@ namespace UI
             createButtons();
         }
 
-        CreditsScreenUIController::~CreditsScreenUIController()
-        {
-            destroy();
-        }
+        CreditsScreenUIController::~CreditsScreenUIController() { destroy(); }
 
         void CreditsScreenUIController::initialize()
         {
@@ -35,15 +32,9 @@ namespace UI
             registerButtonCallback();
         }
 
-        void CreditsScreenUIController::createText()
-        {
-            title_text = new TextView();
-        }
+        void CreditsScreenUIController::createText() { title_text = new TextView(); }
 
-        void CreditsScreenUIController::createImage()
-        {
-            background_image = new ImageView();
-        }
+        void CreditsScreenUIController::createImage() { background_image = new ImageView(); }
 
         void CreditsScreenUIController::createButtons()
         {
@@ -83,7 +74,6 @@ namespace UI
 
         void CreditsScreenUIController::menuButtonCallback()
         {
-            // GameState will change to gameplay state.
             ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
             GameService::setGameState(GameState::MAIN_MENU);
         }

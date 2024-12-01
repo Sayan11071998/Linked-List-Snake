@@ -20,6 +20,7 @@ namespace Level
         void initializeBackground();
         void initializeBorder();
         void calculateGridExtents();
+        
         void destroy();
 
     public:

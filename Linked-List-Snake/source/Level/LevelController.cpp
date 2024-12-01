@@ -32,13 +32,7 @@ namespace Level
 		level_view->render();
 	}
 
-	float LevelController::getCellWidth()
-	{
-		return level_model->getCellWidth();
-	}
+	float LevelController::getCellWidth() { return level_model->getCellWidth(); }
 
-	float LevelController::getCellHeight()
-	{
-		return level_model->getCellHeight();
-	}
+	float LevelController::getCellHeight() { return level_model->getCellHeight(); }
 }

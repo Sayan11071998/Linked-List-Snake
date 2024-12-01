@@ -93,9 +93,6 @@
     <ClCompile Include="source\Player\SnakeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\Player\SnakeController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Main\GameService.h">

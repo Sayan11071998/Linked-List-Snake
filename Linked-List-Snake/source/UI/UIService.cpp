@@ -34,10 +34,7 @@ namespace UI
 
 	}
 
-	UIService::~UIService()
-	{
-		destroy();
-	}
+	UIService::~UIService() { destroy(); }
 
 	void UIService::initialize()
 	{
@@ -78,19 +75,14 @@ namespace UI
 		{
 		case GameState::SPLASH_SCREEN:
 			return splash_screen_controller;
-
 		case GameState::MAIN_MENU:
 			return main_menu_controller;
-
 		case GameState::LEVEL_SELECTION:
 			return level_selection_ui_controller;
-			
 		case GameState::INSTRUCTIONS:
 			return instructions_screen_ui_controller;
-
 		case GameState::CREDITS:
 			return credits_screen_ui_controller;
-
 		default:
 			return nullptr;
 		}
