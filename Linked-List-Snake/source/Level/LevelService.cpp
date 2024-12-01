@@ -1,7 +1,7 @@
-#include "../../include/Level/LevelService.h"
-#include "../../include/Level/LevelController.h"
-#include "../../include/Global/ServiceLocator.h"
-#include "../../include/Level/LevelModel.h"
+#include "Level/LevelService.h"
+#include "Level/LevelController.h"
+#include "Global/ServiceLocator.h"
+#include "Level/LevelModel.h"
 
 namespace Level
 {
@@ -10,6 +10,7 @@ namespace Level
 	LevelService::LevelService()
 	{
 		level_controller = nullptr;
+
 		createLevelController();
 	}
 

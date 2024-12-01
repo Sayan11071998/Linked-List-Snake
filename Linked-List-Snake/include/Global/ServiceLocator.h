@@ -37,7 +37,6 @@ namespace Global
         Level::LevelService* getLevelService();
         UI::UIService* getUIService();
         Time::TimeService* getTimeService();
-        
         void deleteServiceLocator();
     };
 }

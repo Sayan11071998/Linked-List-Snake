@@ -3,25 +3,25 @@
 
 namespace Level
 {
-	class LevelController;
+    class LevelController;
 
-	class LevelService
-	{
-	public:
-		LevelService();
-		~LevelService();
+    class LevelService
+    {
+    private:
+        LevelController* level_controller;
+        LevelNumber current_level;
 
-		void initialize();
-		void update();
-		void render();
+        void createLevelController();
+        void destroy();
 
-		void createLevel(LevelNumber level_to_load);
+    public:
+        LevelService();
+        ~LevelService();
 
-	private:
-		LevelController* level_controller;
-		LevelNumber current_level;
+        void initialize();
+        void update();
+        void render();
 
-		void createLevelController();
-		void destroy();
-	};
+        void createLevel(LevelNumber level_to_load);
+    };
 }
