@@ -12,6 +12,8 @@ namespace Level
         LevelNumber current_level;
 
         void createLevelController();
+        void spawnPlayer();
+        
         void destroy();
 
     public:
