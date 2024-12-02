@@ -5,24 +5,24 @@
 
 namespace Level
 {
-	class LevelModel
-	{
-	public:
-		static const int number_of_rows = 28;
-		static const int number_of_columns = 50;
+    class LevelModel
+    {
+    private:
+        std::vector<LevelData> level_configurations;
 
-		LevelModel();
-		~LevelModel();
+        float cell_width;
+        float cell_height;
 
-		void initialize(int width, int height);
+    public:
+        static const int number_of_rows = 28;
+        static const int number_of_columns = 50;
 
-		float getCellWidth();
-		float getCellHeight();
+        LevelModel();
+        ~LevelModel();
 
-	private:
-		std::vector<LevelData> level_configurations;
+        void initialize(int width, int height);
 
-		float cell_width;
-		float cell_height;
-	};
+        float getCellWidth();
+        float getCellHeight();
+    };
 }

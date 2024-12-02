@@ -1,6 +1,6 @@
-#include "../../include/Level/LevelController.h"
-#include "../../include/Level/LevelModel.h"
-#include "../../include/Level/LevelView.h"
+#include "Level/LevelController.h"
+#include "Level/LevelModel.h"
+#include "Level/LevelView.h"
 
 namespace Level
 {
@@ -32,13 +32,7 @@ namespace Level
 		level_view->render();
 	}
 
-	float LevelController::getCellWidth()
-	{
-		return level_model->getCellWidth();
-	}
+	float LevelController::getCellWidth() { return level_model->getCellWidth(); }
 
-	float LevelController::getCellHeight()
-	{
-		return level_model->getCellHeight();
-	}
+	float LevelController::getCellHeight() { return level_model->getCellHeight(); }
 }

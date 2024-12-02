@@ -35,15 +35,10 @@ namespace UI
 			UIView::render();
 
 			if (ui_state == UIState::VISIBLE)
-			{
 				game_window->draw(text);
-			}
 		}
 
-		void TextView::initializeTextView()
-		{
-			loadFont();
-		}
+		void TextView::initializeTextView() { loadFont(); }
 
 		void TextView::loadFont()
 		{
@@ -51,10 +46,7 @@ namespace UI
 			font_DS_DIGIB.loadFromFile(Config::DS_DIGIB_font_path);
 		}
 
-		void TextView::setText(sf::String text_value)
-		{
-			text.setString(text_value);
-		}
+		void TextView::setText(sf::String text_value) { text.setString(text_value); }
 
 		void TextView::setFont(FontType font_type)
 		{
@@ -69,20 +61,11 @@ namespace UI
 			}
 		}
 
-		void TextView::setFontSize(int font_size)
-		{
-			text.setCharacterSize(font_size);
-		}
+		void TextView::setFontSize(int font_size) { text.setCharacterSize(font_size); }
 
-		void TextView::setTextPosition(sf::Vector2f position)
-		{
-			text.setPosition(position);
-		}
+		void TextView::setTextPosition(sf::Vector2f position) { text.setPosition(position); }
 
-		void TextView::setTextColor(sf::Color color)
-		{
-			text.setFillColor(color);
-		}
+		void TextView::setTextColor(sf::Color color) { text.setFillColor(color); }
 
 		void TextView::setTextCentreAligned()
 		{

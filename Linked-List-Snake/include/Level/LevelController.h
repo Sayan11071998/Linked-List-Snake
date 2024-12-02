@@ -4,23 +4,23 @@
 
 namespace Level
 {
-	class LevelView;
+    class LevelView;
 
-	class LevelController
-	{
-	public:
-		LevelController();
-		~LevelController();
+    class LevelController
+    {
+    private:
+        LevelModel* level_model;
+        LevelView* level_view;
 
-		void initialize();
-		void update();
-		void render();
+    public:
+        LevelController();
+        ~LevelController();
 
-		float getCellWidth();
-		float getCellHeight();
+        void initialize();
+        void update();
+        void render();
 
-	private:
-		LevelModel* level_model;
-		LevelView* level_view;
-	};
+        float getCellWidth();
+        float getCellHeight();
+    };
 }

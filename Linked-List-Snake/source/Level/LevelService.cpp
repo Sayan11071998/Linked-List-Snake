@@ -1,7 +1,7 @@
-#include "../../include/Level/LevelService.h"
-#include "../../include/Level/LevelController.h"
-#include "../../include/Global/ServiceLocator.h"
-#include "../../include/Level/LevelModel.h"
+#include "Level/LevelService.h"
+#include "Level/LevelController.h"
+#include "Global/ServiceLocator.h"
+#include "Level/LevelModel.h"
 
 namespace Level
 {
@@ -13,14 +13,13 @@ namespace Level
 		createLevelController();
 	}
 
-	LevelService::~LevelService()
-	{
-		destroy();
-	}
+	LevelService::~LevelService() { destroy(); }
 
-	void LevelService::createLevelController()
+	void LevelService::createLevelController() { level_controller = new LevelController(); }
+
+	void LevelService::spawnPlayer()
 	{
-		level_controller = new LevelController();
+		ServiceLocator::getInstance()->getPlayerService()->spawnPlayer();
 	}
 
 	void LevelService::initialize()
@@ -41,10 +40,8 @@ namespace Level
 	void LevelService::createLevel(LevelNumber level_to_load)
 	{
 		current_level = level_to_load;
+		spawnPlayer();
 	}
 
-	void LevelService::destroy()
-	{
-		delete level_controller;
-	}
+	void LevelService::destroy() { delete level_controller; }
 }
