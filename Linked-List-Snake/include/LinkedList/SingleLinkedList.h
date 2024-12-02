@@ -14,6 +14,8 @@ namespace LinkedList
 		void render();
 
 		void insertNodeAtTail();
+		void updateNodePosition();
+		void updateNodeDirection(Direction direction_to_set);
 
 	private:
 		Node* head_node;
