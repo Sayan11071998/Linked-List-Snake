@@ -40,9 +40,41 @@ namespace Player
 		bodypart_image->render();
 	}
 
+	Direction BodyPart::getDirection()
+	{
+		return direction;
+	}
+
 	void BodyPart::setDirection(Direction direction)
 	{
 		this->direction = direction;
+	}
+
+	sf::Vector2i BodyPart::getNextPosition()
+	{
+		switch (direction)
+		{
+		case Player::Direction::UP:
+			return getNextPositionUp();
+		case Player::Direction::DOWN:
+			return getNextPositionDown();
+		case Player::Direction::LEFT:
+			return getNextPositionLeft();
+		case Player::Direction::RIGHT:
+			return getNextPositionRight();
+		default:
+			return grid_position;
+		}
+	}
+
+	sf::Vector2i BodyPart::getPosition()
+	{
+		return grid_position;
+	}
+
+	void BodyPart::setPosition(sf::Vector2i position)
+	{
+		grid_position = position;
 	}
 
 	void BodyPart::createBodyPartImage() { bodypart_image = new ImageView(); }
@@ -74,6 +106,26 @@ namespace Player
 		case Player::Direction::RIGHT:
 			return 0.f;
 		}
+	}
+
+	sf::Vector2i BodyPart::getNextPositionUp()
+	{
+		return sf::Vector2i(grid_position.x, grid_position.y - 1);
+	}
+
+	sf::Vector2i BodyPart::getNextPositionDown()
+	{
+		return sf::Vector2i(grid_position.x, grid_position.y + 1);
+	}
+
+	sf::Vector2i BodyPart::getNextPositionLeft()
+	{
+		return sf::Vector2i(grid_position.x - 1, grid_position.y);
+	}
+
+	sf::Vector2i BodyPart::getNextPositionRight()
+	{
+		return sf::Vector2i(grid_position.x + 1, grid_position.y);
 	}
 
 	void BodyPart::destroy() { delete bodypart_image; }
