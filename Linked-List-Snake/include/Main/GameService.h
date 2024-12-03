@@ -27,6 +27,7 @@ namespace Main
 		void initialize();
 		void initializeVariables();
 		void showSplashScreen();
+		
 		void destroy();
 
 	public:

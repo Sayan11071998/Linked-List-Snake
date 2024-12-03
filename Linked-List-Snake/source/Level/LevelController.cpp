@@ -1,9 +1,11 @@
-#include "../../include/Level/LevelController.h"
-#include "../../include/Level/LevelModel.h"
-#include "../../include/Level/LevelView.h"
+#include "Level/LevelController.h"
+#include "Level/LevelModel.h"
+#include "Level/LevelView.h"
 
 namespace Level
 {
+	using namespace Element;
+
 	LevelController::LevelController()
 	{
 		level_model = new LevelModel();
@@ -32,13 +34,12 @@ namespace Level
 		level_view->render();
 	}
 
-	float LevelController::getCellWidth()
+	const std::vector<Element::ElementData>& LevelController::getElementDataList(int level_to_load)
 	{
-		return level_model->getCellWidth();
+		return level_model->getElementDataList(level_to_load);
 	}
 
-	float LevelController::getCellHeight()
-	{
-		return level_model->getCellHeight();
-	}
+	float LevelController::getCellWidth() { return level_model->getCellWidth(); }
+
+	float LevelController::getCellHeight() { return level_model->getCellHeight(); }
 }
