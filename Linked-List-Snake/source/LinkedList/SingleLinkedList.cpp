@@ -24,7 +24,7 @@ namespace LinkedList
 		while (cur_node != nullptr)
 		{
 			cur_node->body_part.render();
-			cur_node = cur_node->next();
+			cur_node = cur_node->next;
 		}
 	}
 
