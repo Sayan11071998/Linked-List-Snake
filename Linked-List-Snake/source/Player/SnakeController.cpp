@@ -30,8 +30,8 @@ namespace Player
 		float width = ServiceLocator::getInstance()->getLevelService()->getCellWidth();
 		float height = ServiceLocator::getInstance()->getLevelService()->getCellHeight();
 
+		reset();
 		single_linked_list->initialize(width, height, default_position, default_direction);
-
 	}
 
 	void SnakeController::update()
@@ -40,9 +40,7 @@ namespace Player
 		{
 		case Player::SnakeState::ALIVE:
 			processPlayerInput();
-			updateSnakeDirection();
-			processSnakeCollision();
-			moveSnake();
+			delayedUpdate();
 			break;
 		case Player::SnakeState::DEAD:
 			handleRestart();
@@ -69,16 +67,30 @@ namespace Player
 
 	void SnakeController::processPlayerInput()
 	{
+		if (current_input_state == InoutState::PROCESSING) return;
+
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
 		if (event_service->pressedUpArrowKey() && current_snake_direction != Direction::DOWN)
+		{
 			current_snake_direction = Direction::UP;
+			current_input_state = InoutState::PROCESSING;
+		}
 		else if (event_service->pressedDownArrowKey() && current_snake_direction != Direction::UP)
+		{
 			current_snake_direction = Direction::DOWN;
+			current_input_state = InoutState::PROCESSING;
+		}
 		else if (event_service->pressedLeftArrowKey() && current_snake_direction != Direction::RIGHT)
+		{
 			current_snake_direction = Direction::LEFT;
+			current_input_state = InoutState::PROCESSING;
+		}
 		else if (event_service->pressedRightArrowKey() && current_snake_direction != Direction::LEFT)
+		{
 			current_snake_direction = Direction::RIGHT;
+			current_input_state = InoutState::PROCESSING;
+		}
 	}
 
 	void SnakeController::updateSnakeDirection()
@@ -100,8 +112,12 @@ namespace Player
 			elapsed_duration = 0.f;
 			updateSnakeDirection();
 			processSnakeCollision();
+
 			if (current_snake_state != SnakeState::DEAD)
+			{
 				moveSnake();
+				current_input_state = InoutState::WAITING;
+			}
 		}
 	}
 
@@ -128,6 +144,7 @@ namespace Player
 		current_snake_direction = default_direction;
 		elapsed_duration = 0.f;
 		restart_counter = 0.f;
+		current_input_state = InoutState::WAITING;
 	}
 
 	void SnakeController::destroy()
