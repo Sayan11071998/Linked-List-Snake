@@ -24,15 +24,9 @@ namespace Level
 		level_model->initialize(level_view->getGridWidth(), level_view->getGridHeight());
 	}
 
-	void LevelController::update()
-	{
-		level_view->update();
-	}
+	void LevelController::update() { level_view->update(); }
 
-	void LevelController::render()
-	{
-		level_view->render();
-	}
+	void LevelController::render() { level_view->render(); }
 
 	const std::vector<Element::ElementData>& LevelController::getElementDataList(int level_to_load)
 	{

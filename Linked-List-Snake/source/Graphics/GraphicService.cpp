@@ -27,9 +27,9 @@ namespace Graphics
 
 	void GraphicService::setFrameRate(int frame_rate_to_set) { game_window->setFramerateLimit(frame_rate_to_set); }
 
-	void GraphicService::update() { }
+	void GraphicService::update() {}
 
-	void GraphicService::render() { }
+	void GraphicService::render() {}
 
 	bool GraphicService::isGameWindowOpen() { return game_window->isOpen(); }
 
