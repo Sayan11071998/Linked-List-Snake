@@ -43,6 +43,7 @@ namespace Global
         Player::PlayerService* getPlayerService();
         UI::UIService* getUIService();
         Time::TimeService* getTimeService();
+        
         void deleteServiceLocator();
     };
 }

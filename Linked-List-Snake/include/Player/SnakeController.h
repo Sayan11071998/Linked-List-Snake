@@ -13,7 +13,7 @@ namespace Player
 		DEAD
 	};
 
-	enum class InoutState
+	enum class InputState
 	{
 		WAITING,
 		PROCESSING
@@ -45,7 +45,7 @@ namespace Player
 		SnakeState current_snake_state;
 		LinkedList::Direction current_snake_direction;
 		LinkedList::SingleLinkedList* single_linked_list;
-		InoutState current_input_state;
+		InputState current_input_state;
 
 		float elapsed_duration;
 		float restart_counter;

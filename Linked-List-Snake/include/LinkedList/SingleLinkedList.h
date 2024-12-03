@@ -20,6 +20,9 @@ namespace LinkedList
 		void removeNodeAtHead();
 		void removeAllNodes();
 
+		bool processNodeCollision();
+		Node* getHeadNode();
+
 	private:
 		Node* head_node;
 

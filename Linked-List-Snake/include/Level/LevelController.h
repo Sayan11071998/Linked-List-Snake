@@ -8,10 +8,6 @@ namespace Level
 
     class LevelController
     {
-    private:
-        LevelModel* level_model;
-        LevelView* level_view;
-
     public:
         LevelController();
         ~LevelController();
@@ -24,5 +20,9 @@ namespace Level
         float getCellHeight();
 
         const std::vector<Element::ElementData>& getElementDataList(int level_to_load);
+
+    private:
+        LevelModel* level_model;
+        LevelView* level_view;
     };
 }
