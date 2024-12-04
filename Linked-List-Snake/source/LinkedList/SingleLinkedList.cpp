@@ -70,27 +70,6 @@ namespace LinkedList
 		}
 	}
 
-	bool SingleLinkedList::processNodeCollision()
-	{
-		if (head_node == nullptr) return false;
-
-		sf::Vector2i predicted_position = head_node->body_part.getNextPosition();
-		Node* cur_node = head_node->next;
-
-		while (cur_node != nullptr)
-		{
-			if (cur_node->body_part.getNextPosition() == predicted_position) return true;
-			cur_node = cur_node->next;
-		}
-
-		return false;
-	}
-
-	Node* SingleLinkedList::getHeadNode()
-	{
-		return nullptr;
-	}
-
 	void SingleLinkedList::removeNodeAtHead()
 	{
 		Node* cur_node = head_node;
@@ -103,14 +82,28 @@ namespace LinkedList
 	void SingleLinkedList::removeAllNodes()
 	{
 		if (head_node == nullptr) return;
-		while (head_node != nullptr)
-			removeNodeAtHead();
+		while (head_node != nullptr) { removeNodeAtHead(); }
 	}
 
-	Node* SingleLinkedList::createNode()
+	bool SingleLinkedList::processNodeCollision()
 	{
-		return new Node();
+		if (head_node == nullptr) return false;
+
+		sf::Vector2i predicted_position = head_node->body_part.getNextPosition();
+
+		Node* cur_node = head_node->next;
+		while (cur_node != nullptr)
+		{
+			if (cur_node->body_part.getNextPosition() == predicted_position) return true;
+			cur_node = cur_node->next;
+		}
+
+		return false;
 	}
+
+	Node* SingleLinkedList::getHeadNode() { return head_node; }
+
+	Node* SingleLinkedList::createNode() { return new Node(); }
 
 	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node)
 	{

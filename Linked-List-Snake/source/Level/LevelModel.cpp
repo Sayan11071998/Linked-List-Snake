@@ -18,7 +18,7 @@ namespace Level
 		initializeLevelData();
 	}
 
-	const std::vector<Element::ElementData>& LevelModel::getElementDataList(int level_to_load)
+	const std::vector<ElementData>& LevelModel::getElementDataList(int level_to_load)
 	{
 		return *level_configurations[level_to_load].element_data_list;
 	}

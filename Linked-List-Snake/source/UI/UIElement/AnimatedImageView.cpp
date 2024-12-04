@@ -30,10 +30,7 @@ namespace UI
             }
         }
 
-        void AnimatedImageView::render()
-        {
-            ImageView::render();
-        }
+        void AnimatedImageView::render() { ImageView::render(); }
 
         void AnimatedImageView::playAnimation(AnimationType type, float duration, CallbackFunction animation_end_callback)
         {

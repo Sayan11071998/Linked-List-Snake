@@ -30,10 +30,7 @@ namespace UI
                 handleButtonInteraction();
         }
 
-        void ButtonView::render()
-        {
-            ImageView::render();
-        }
+        void ButtonView::render() { ImageView::render(); }
 
         void ButtonView::handleButtonInteraction()
         {

@@ -25,10 +25,7 @@ namespace UI
 			setTextColor(color);
 		}
 
-		void TextView::update()
-		{
-			UIView::update();
-		}
+		void TextView::update() { UIView::update(); }
 
 		void TextView::render()
 		{

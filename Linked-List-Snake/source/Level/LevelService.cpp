@@ -1,11 +1,13 @@
 #include "Level/LevelService.h"
 #include "Level/LevelController.h"
 #include "Global/ServiceLocator.h"
+#include "Element/ElementService.h"
 #include "Level/LevelModel.h"
 
 namespace Level
 {
 	using namespace Global;
+	using namespace Element;
 
 	LevelService::LevelService()
 	{
@@ -16,6 +18,19 @@ namespace Level
 	LevelService::~LevelService() { destroy(); }
 
 	void LevelService::createLevelController() { level_controller = new LevelController(); }
+
+	void LevelService::initialize() { level_controller->initialize(); }
+
+	void LevelService::update() { level_controller->update(); }
+
+	void LevelService::render() { level_controller->render(); }
+
+	void LevelService::createLevel(LevelNumber level_to_load)
+	{
+		current_level = level_to_load;
+		spawnLevelElements(level_to_load);
+		spawnPlayer();
+	}
 
 	void LevelService::spawnPlayer()
 	{
@@ -31,37 +46,9 @@ namespace Level
 		ServiceLocator::getInstance()->getElementService()->spawnElements(element_data_list, cell_width, cell_height);
 	}
 
-	void LevelService::initialize()
-	{
-		level_controller->initialize();
-	}
+	float LevelService::getCellWidth() { return level_controller->getCellWidth(); }
 
-	void LevelService::update()
-	{
-		level_controller->update();
-	}
-
-	void LevelService::render()
-	{
-		level_controller->render();
-	}
-
-	void LevelService::createLevel(LevelNumber level_to_load)
-	{
-		current_level = level_to_load;
-		spawnLevelElements(level_to_load);
-		spawnPlayer();
-	}
-
-	float LevelService::getCellWidth()
-	{
-		return level_controller->getCellWidth();
-	}
-
-	float LevelService::getCellHeight()
-	{
-		return level_controller->getCellHeight();
-	}
+	float LevelService::getCellHeight() { return level_controller->getCellHeight(); }
 
 	void LevelService::destroy() { delete level_controller; }
 }

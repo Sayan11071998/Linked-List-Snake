@@ -16,10 +16,7 @@ namespace UI
             setPosition(position);
         }
 
-        void ImageView::update()
-        {
-            UIView::update();
-        }
+        void ImageView::update() { UIView::update(); }
 
         void ImageView::render()
         {

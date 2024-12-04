@@ -19,10 +19,7 @@ namespace UI
 			setOutlineColor(outline_color);
 		}
 
-		void RectangleShapeView::update()
-		{
-			UIView::update();
-		}
+		void RectangleShapeView::update() { UIView::update(); }
 
 		void RectangleShapeView::render()
 		{

@@ -20,10 +20,7 @@ namespace Player
 
 	SnakeController::~SnakeController() { destroy(); }
 
-	void SnakeController::createLinkedList()
-	{
-		single_linked_list = new SingleLinkedList();
-	}
+	void SnakeController::createLinkedList() { single_linked_list = new SingleLinkedList(); }
 
 	void SnakeController::initialize()
 	{
@@ -38,11 +35,11 @@ namespace Player
 	{
 		switch (current_snake_state)
 		{
-		case Player::SnakeState::ALIVE:
+		case SnakeState::ALIVE:
 			processPlayerInput();
 			delayedUpdate();
 			break;
-		case Player::SnakeState::DEAD:
+		case SnakeState::DEAD:
 			handleRestart();
 			break;
 		}
@@ -53,9 +50,7 @@ namespace Player
 	void SnakeController::spawnSnake()
 	{
 		for (int i = 0; i < initial_snake_length; i++)
-		{
 			single_linked_list->insertNodeAtTail();
-		}
 	}
 
 	void SnakeController::respawnSnake()
@@ -67,41 +62,35 @@ namespace Player
 
 	void SnakeController::processPlayerInput()
 	{
-		if (current_input_state == InoutState::PROCESSING) return;
+		if (current_input_state == InputState::PROCESSING) return;
 
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
 		if (event_service->pressedUpArrowKey() && current_snake_direction != Direction::DOWN)
 		{
 			current_snake_direction = Direction::UP;
-			current_input_state = InoutState::PROCESSING;
+			current_input_state = InputState::PROCESSING;
 		}
 		else if (event_service->pressedDownArrowKey() && current_snake_direction != Direction::UP)
 		{
 			current_snake_direction = Direction::DOWN;
-			current_input_state = InoutState::PROCESSING;
+			current_input_state = InputState::PROCESSING;
 		}
 		else if (event_service->pressedLeftArrowKey() && current_snake_direction != Direction::RIGHT)
 		{
 			current_snake_direction = Direction::LEFT;
-			current_input_state = InoutState::PROCESSING;
+			current_input_state = InputState::PROCESSING;
 		}
 		else if (event_service->pressedRightArrowKey() && current_snake_direction != Direction::LEFT)
 		{
 			current_snake_direction = Direction::RIGHT;
-			current_input_state = InoutState::PROCESSING;
+			current_input_state = InputState::PROCESSING;
 		}
 	}
 
-	void SnakeController::updateSnakeDirection()
-	{
-		single_linked_list->updateNodeDirection(current_snake_direction);
-	}
+	void SnakeController::updateSnakeDirection() { single_linked_list->updateNodeDirection(current_snake_direction); }
 
-	void SnakeController::moveSnake()
-	{
-		single_linked_list->updateNodePosition();
-	}
+	void SnakeController::moveSnake() { single_linked_list->updateNodePosition(); }
 
 	void SnakeController::delayedUpdate()
 	{
@@ -116,7 +105,7 @@ namespace Player
 			if (current_snake_state != SnakeState::DEAD)
 			{
 				moveSnake();
-				current_input_state = InoutState::WAITING;
+				current_input_state = InputState::WAITING;
 			}
 		}
 	}
@@ -144,11 +133,8 @@ namespace Player
 		current_snake_direction = default_direction;
 		elapsed_duration = 0.f;
 		restart_counter = 0.f;
-		current_input_state = InoutState::WAITING;
+		current_input_state = InputState::WAITING;
 	}
 
-	void SnakeController::destroy()
-	{
-		delete single_linked_list;
-	}
+	void SnakeController::destroy() { delete single_linked_list; }
 }

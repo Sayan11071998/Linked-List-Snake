@@ -28,27 +28,30 @@ namespace Player
 		initializeBodyPartImage();
 	}
 
+	void BodyPart::createBodyPartImage() { bodypart_image = new ImageView(); }
+
+	void BodyPart::initializeBodyPartImage()
+	{
+		bodypart_image->initialize(Config::snake_body_texture_path, bodypart_width, bodypart_height, getBodyPartScreenPosition());
+		bodypart_image->setOriginAtCentre();
+	}
+
 	void BodyPart::updatePosition()
 	{
+		grid_position = getNextPosition();
+
 		bodypart_image->setPosition(getBodyPartScreenPosition());
 		bodypart_image->setRotation(getRotationAngle());
 		bodypart_image->update();
 	}
 
-	void BodyPart::render()
-	{
-		bodypart_image->render();
-	}
+	void BodyPart::render() { bodypart_image->render(); }
 
-	Direction BodyPart::getDirection()
-	{
-		return direction;
-	}
+	Direction BodyPart::getDirection() { return direction; }
 
-	void BodyPart::setDirection(Direction direction)
-	{
-		this->direction = direction;
-	}
+	void BodyPart::setDirection(Direction new_direction) { direction = new_direction; }
+
+	sf::Vector2i BodyPart::getPosition() { return grid_position; }
 
 	sf::Vector2i BodyPart::getNextPosition()
 	{
@@ -65,24 +68,6 @@ namespace Player
 		default:
 			return grid_position;
 		}
-	}
-
-	sf::Vector2i BodyPart::getPosition()
-	{
-		return grid_position;
-	}
-
-	void BodyPart::setPosition(sf::Vector2i position)
-	{
-		grid_position = position;
-	}
-
-	void BodyPart::createBodyPartImage() { bodypart_image = new ImageView(); }
-
-	void BodyPart::initializeBodyPartImage()
-	{
-		bodypart_image->initialize(Config::snake_body_texture_path, bodypart_width, bodypart_height, getBodyPartScreenPosition());
-		bodypart_image->setOriginAtCentre();
 	}
 
 	sf::Vector2f BodyPart::getBodyPartScreenPosition()
