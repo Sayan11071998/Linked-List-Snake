@@ -8,6 +8,12 @@ namespace Food
 	enum class FoodType;
 	class FoodItem;
 
+	enum FoodSpawningStatus
+	{
+		ACTIVE,
+		IN_ACTIVE
+	};
+
 	class FoodService
 	{
 	public:
@@ -19,8 +25,13 @@ namespace Food
 		void render();
 
 		void startFoodSpawning();
+		void stopFoodSpawning();
 
 	private:
+		const float spawn_duration = 4.f;
+		float elasped_duration;
+
+		FoodSpawningStatus current_spawning_status;
 		FoodItem* current_food_item;
 
 		float cell_width;
@@ -39,5 +50,8 @@ namespace Food
 		bool isValidPosition(std::vector<sf::Vector2i> position_data, sf::Vector2i food_position);
 
 		void destroyFood();
+		void updateElaspedDuration();
+		void handleFoodSpawning();
+		void reset();
 	};
 }
