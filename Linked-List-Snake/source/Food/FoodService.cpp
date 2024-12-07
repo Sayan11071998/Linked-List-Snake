@@ -79,8 +79,8 @@ namespace Food
 		std::uniform_int_distribution<int> x_distribution(0, LevelModel::number_of_columns - 1);
 		std::uniform_int_distribution<int> y_distribution(0, LevelModel::number_of_rows - 1);
 
-		int x_position = x_distribution(random_engine);
-		int y_position = y_distribution(random_engine);
+		int x_position = static_cast<int>(x_distribution(random_engine));
+		int y_position = static_cast<int>(y_distribution(random_engine));
 
 		return sf::Vector2i(x_position, y_position);
 	}

@@ -18,15 +18,15 @@ namespace Level
 		initializeLevelData();
 	}
 
-	const std::vector<ElementData>& LevelModel::getElementDataList(int level_to_load)
-	{
-		return *level_configurations[level_to_load].element_data_list;
-	}
-
 	void LevelModel::initializeLevelData()
 	{
 		level_configurations.push_back(LevelData(Level::LevelNumber::ONE, &level_one_element_list));
-		level_configurations.push_back(LevelData(Level::LevelNumber::TWO, &level_one_element_list));
+		level_configurations.push_back(LevelData(Level::LevelNumber::TWO, &level_two_element_list));
+	}
+
+	const std::vector<ElementData>& LevelModel::getElementDataList(int level_to_load)
+	{
+		return *level_configurations[level_to_load].element_data_list;
 	}
 
 	float LevelModel::getCellWidth() { return cell_width; }
