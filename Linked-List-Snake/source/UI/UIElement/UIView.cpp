@@ -19,18 +19,12 @@ namespace UI
 			ui_state = UIState::VISIBLE;
 		}
 
-		void UIView::update() { }
+		void UIView::update() {}
 
-		void UIView::render() { }
+		void UIView::render() {}
 
-		void UIView::show()
-		{
-			ui_state = UIState::VISIBLE;
-		}
+		void UIView::show() { ui_state = UIState::VISIBLE; }
 
-		void UIView::hide()
-		{
-			ui_state = UIState::HIDDEN;
-		}
+		void UIView::hide() { ui_state = UIState::HIDDEN; }
 	}
 }

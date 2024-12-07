@@ -21,10 +21,7 @@ namespace UI
             createButtons();
         }
 
-        MainMenuUIController::~MainMenuUIController()
-        {
-            destroy();
-        }
+        MainMenuUIController::~MainMenuUIController() { destroy(); }
 
         void MainMenuUIController::initialize()
         {
@@ -33,10 +30,7 @@ namespace UI
             registerButtonCallback();
         }
 
-        void MainMenuUIController::createImage()
-        {
-            background_image = new ImageView();
-        }
+        void MainMenuUIController::createImage() { background_image = new ImageView(); }
 
         void MainMenuUIController::createButtons()
         {
@@ -73,8 +67,8 @@ namespace UI
 
         void MainMenuUIController::playButtonCallback()
         {
-            // GameState will change to gameplay state.
             ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+            GameService::setGameState(GameState::LEVEL_SELECTION);
         }
 
         void MainMenuUIController::instructionsButtonCallback()
