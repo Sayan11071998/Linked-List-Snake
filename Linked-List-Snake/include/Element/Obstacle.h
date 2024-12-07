@@ -14,6 +14,8 @@ namespace Element
 		void update();
 		void render();
 
+		sf::Vector2i getObstaclePosition();
+
 	private:
 		UI::UIElement::ImageView* obstacle_image;
 		sf::Vector2i grid_position;

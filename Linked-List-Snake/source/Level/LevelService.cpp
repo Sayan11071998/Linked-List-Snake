@@ -2,12 +2,14 @@
 #include "Level/LevelController.h"
 #include "Global/ServiceLocator.h"
 #include "Element/ElementService.h"
+#include "Food/FoodService.h"
 #include "Level/LevelModel.h"
 
 namespace Level
 {
 	using namespace Global;
 	using namespace Element;
+	using namespace Food;
 
 	LevelService::LevelService()
 	{
@@ -30,7 +32,12 @@ namespace Level
 		current_level = level_to_load;
 		spawnLevelElements(level_to_load);
 		spawnPlayer();
+		spawnFood();
 	}
+
+	float LevelService::getCellWidth() { return level_controller->getCellWidth(); }
+
+	float LevelService::getCellHeight() { return level_controller->getCellHeight(); }
 
 	void LevelService::spawnPlayer()
 	{
@@ -46,9 +53,13 @@ namespace Level
 		ServiceLocator::getInstance()->getElementService()->spawnElements(element_data_list, cell_width, cell_height);
 	}
 
-	float LevelService::getCellWidth() { return level_controller->getCellWidth(); }
+	void LevelService::spawnFood()
+	{
+		float cell_width = level_controller->getCellWidth();
+		float cell_height = level_controller->getCellHeight();
 
-	float LevelService::getCellHeight() { return level_controller->getCellHeight(); }
+		ServiceLocator::getInstance()->getFoodService()->startFoodSpawning();
+	}
 
 	void LevelService::destroy() { delete level_controller; }
 }

@@ -18,6 +18,7 @@ namespace Element
 		void render();
 
 		const void spawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height);
+		std::vector<sf::Vector2i> getElementPositionList();
 
 	private:
 		std::vector<Obstacle*> obstacle_list;
