@@ -14,13 +14,15 @@ namespace LinkedList
 		void render();
 
 		void insertNodeAtTail();
-		void updateNodePosition();
-		void updateNodeDirection(Direction direction_to_set);
 		void removeNodeAtHead();
 		void removeAllNodes();
-
+		void updateNodePosition();
+		void updateNodeDirection(Direction direction_to_set);
+		
 		bool processNodeCollision();
 		Node* getHeadNode();
+		
+		std::vector<sf::Vector2i> getNodesPositionList();
 
 	private:
 		Node* head_node;

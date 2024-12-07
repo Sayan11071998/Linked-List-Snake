@@ -31,8 +31,10 @@ namespace Player
 
 		void spawnSnake();
 		void respawnSnake();
-		SnakeState getSnakeState();
 		void setSnakeState(SnakeState state);
+		SnakeState getSnakeState();
+		
+		std::vector<sf::Vector2i> getCurrentSnakePositionList();
 
 	private:
 		const int initial_snake_length = 10;
@@ -43,18 +45,18 @@ namespace Player
 		const LinkedList::Direction default_direction = LinkedList::Direction::RIGHT;
 		
 		SnakeState current_snake_state;
-		LinkedList::Direction current_snake_direction;
-		LinkedList::SingleLinkedList* single_linked_list;
-		InputState current_input_state;
-
 		float elapsed_duration;
 		float restart_counter;
+		LinkedList::Direction current_snake_direction;
+		InputState current_input_state;
+
+		LinkedList::SingleLinkedList* single_linked_list;
 
 		void createLinkedList();
 		void processPlayerInput();
 		void updateSnakeDirection();
-		void moveSnake();
 		void delayedUpdate();
+		void moveSnake();
 		void processSnakeCollision();
 		
 		void handleRestart();
