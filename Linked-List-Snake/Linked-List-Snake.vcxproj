@@ -187,6 +187,7 @@
     <ClInclude Include="include\Player\SnakeController.h" />
     <ClInclude Include="include\Time\TimeService.h" />
     <ClInclude Include="include\UI\Credits\CreditsScreenUIController.h" />
+    <ClInclude Include="include\UI\GameplayUI\GameplayUIController.h" />
     <ClInclude Include="include\UI\Instructions\InstructionsScreenUIController.h" />
     <ClInclude Include="include\UI\LevelSelection\LevelSelectionUIController.h" />
     <ClInclude Include="include\UI\UIElement\AnimatedImageView.h" />
