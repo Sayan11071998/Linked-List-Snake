@@ -294,6 +294,38 @@ namespace LinkedList
 		return prev_node;
 	}
 
+	Direction SingleLinkedList::reverse()
+	{
+		Node* cur_node = head_node;
+		Node* prev_node = nullptr;
+		Node* next_node = nullptr;
+
+		while (cur_node != nullptr)
+		{
+			next_node = cur_node->next;
+			cur_node->next = prev_node;
+
+			prev_node = cur_node;
+			cur_node = next_node;
+		}
+
+		head_node = prev_node;
+		reverseNodeDirections();
+
+		return head_node->body_part.getDirection();
+	}
+
+	void SingleLinkedList::reverseNodeDirections()
+	{
+		Node* cur_node = head_node;
+
+		while (cur_node != nullptr)
+		{
+			cur_node->body_part.setDirection(getReverseDirection(cur_node->body_part.getPreviousDirection()));
+			cur_node = cur_node->next;
+		}
+	}
+
 	Node* SingleLinkedList::createNode() { return new Node(); }
 
 	void SingleLinkedList::initializeNode(Node* new_node, Node* reference_node, Operation operation)
@@ -319,6 +351,21 @@ namespace LinkedList
 		}
 
 		return default_position;
+	}
+
+	Direction SingleLinkedList::getReverseDirection(Direction reference_direction)
+	{
+		switch (reference_direction)
+		{
+		case Player::Direction::UP:
+			return Direction::DOWN;
+		case Player::Direction::DOWN:
+			return Direction::UP;
+		case Player::Direction::LEFT:
+			return Direction::RIGHT;
+		case Player::Direction::RIGHT:
+			return Direction::LEFT;
+		}
 	}
 
 	int SingleLinkedList::findMiddleNode()
