@@ -166,6 +166,24 @@ namespace LinkedList
 		initializeNode(cur_node, prev_node, Operation::TAIL);
 	}
 
+	void SingleLinkedList::removeNodeAtTail()
+	{
+		if (head_node == nullptr) return;
+		linked_list_size--;
+
+		Node* cur_node = head_node;
+
+		if (cur_node->next == nullptr)
+		{
+			removeNodeAtHead();
+			return;
+		}
+
+		while (cur_node->next->next != nullptr) { cur_node = cur_node->next; }
+		delete(cur_node->next);
+		cur_node->next = nullptr;
+	}
+
 	void SingleLinkedList::removeNodeAtHead()
 	{
 		Node* cur_node = head_node;
