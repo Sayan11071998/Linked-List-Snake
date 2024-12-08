@@ -137,6 +137,7 @@ namespace Player
 			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::PICKUP);
 			food_service->destroyFood();
 			onFoodCollected(food_type);
+			player_score++;
 		}
 	}
 
@@ -190,6 +191,7 @@ namespace Player
 		current_snake_direction = default_direction;
 		elapsed_duration = 0.f;
 		restart_counter = 0.f;
+		player_score = 0;
 		current_input_state = InputState::WAITING;
 	}
 
@@ -207,6 +209,21 @@ namespace Player
 	std::vector<sf::Vector2i> SnakeController::getCurrentSnakePositionList()
 	{
 		return single_linked_list->getNodesPositionList();
+	}
+
+	TimeComplexity SnakeController::getTimeComplexity()
+	{
+		return time_complexity;
+	}
+
+	LinkedListOperations SnakeController::getLastOperation()
+	{
+		return last_linked_list_operation;
+	}
+
+	int SnakeController::getPlayerScore()
+	{
+		return player_score;
 	}
 
 	void SnakeController::destroy() { delete single_linked_list; }

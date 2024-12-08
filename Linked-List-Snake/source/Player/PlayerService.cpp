@@ -21,10 +21,13 @@ namespace Player
 
 	void PlayerService::spawnPlayer() { snake_controller->spawnSnake(); }
 
-	std::vector<sf::Vector2i> PlayerService::getCurrentSnakePositionList()
-	{
-		return snake_controller->getCurrentSnakePositionList();
-	}
+	int PlayerService::getPlayerScore() { return snake_controller->getPlayerScore(); }
+
+	TimeComplexity PlayerService::getTimeComplexity() { return snake_controller->getTimeComplexity(); }
+
+	LinkedListOperations PlayerService::getLastOperation() { return snake_controller->getLastOperation(); }
+
+	std::vector<sf::Vector2i> PlayerService::getCurrentSnakePositionList() { return snake_controller->getCurrentSnakePositionList(); }
 
 	void PlayerService::destroy() { delete snake_controller; }
 }
