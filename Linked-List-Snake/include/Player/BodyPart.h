@@ -18,7 +18,9 @@ namespace Player
 		Direction getDirection();
 		void setDirection(Direction new_direction);
 		sf::Vector2i getPosition();
+		
 		sf::Vector2i getNextPosition();
+		sf::Vector2i getPrevPosition();
 
 	protected:
 		UI::UIElement::ImageView* bodypart_image;

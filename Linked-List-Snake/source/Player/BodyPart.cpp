@@ -72,6 +72,23 @@ namespace Player
 		}
 	}
 
+	sf::Vector2i BodyPart::getPrevPosition()
+	{
+		switch (direction)
+		{
+		case Player::Direction::UP:
+			return getNextPositionDown();
+		case Player::Direction::DOWN:
+			return getNextPositionUp();
+		case Player::Direction::LEFT:
+			return getNextPositionRight();
+		case Player::Direction::RIGHT:
+			return getNextPositionLeft();
+		default:
+			return grid_position;
+		}
+	}
+
 	sf::Vector2i BodyPart::getNextPositionUp()
 	{
 		return sf::Vector2i(grid_position.x, (grid_position.y - 1 + (LevelModel::number_of_rows)) % (LevelModel::number_of_rows));
