@@ -63,6 +63,8 @@ namespace Player
 		void processBodyCollision();
 		void processElementsCollision();
 		void processFoodCollision();
+
+		void onFoodCollected(Food::FoodType food_type);
 		
 		void handleRestart();
 		void reset();

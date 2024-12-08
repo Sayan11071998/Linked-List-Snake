@@ -19,6 +19,7 @@ namespace Food
 		void render();
 
 		FoodType getFoodType();
+		sf::Vector2i getFoodPosition();
 
 	private:
 		UI::UIElement::ImageView* food_image;
