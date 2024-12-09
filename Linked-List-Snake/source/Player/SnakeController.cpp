@@ -172,6 +172,11 @@ namespace Player
 		}
 	}
 
+	int SnakeController::getRandomBodyPartIndex()
+	{
+		return 0;
+	}
+
 	void SnakeController::handleRestart()
 	{
 		restart_counter += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
@@ -224,6 +229,16 @@ namespace Player
 	int SnakeController::getPlayerScore()
 	{
 		return player_score;
+	}
+
+	int SnakeController::getSnakeSize()
+	{
+		return 0;
+	}
+
+	bool SnakeController::isSnakeSizeMinimum()
+	{
+		return false;
 	}
 
 	void SnakeController::destroy() { delete single_linked_list; }

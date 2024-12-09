@@ -59,11 +59,15 @@ namespace Player
 		TimeComplexity getTimeComplexity();
 		LinkedListOperations getLastOperation();
 		int getPlayerScore();
+		int getSnakeSize();
+		bool isSnakeSizeMinimum();
 
 	private:
 		const int initial_snake_length = 10;
 		const float movement_frame_duration = 0.1f;
 		const float restart_duration = 3.f;
+
+		const int minimum_snake_size = 3;
 
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		const LinkedList::Direction default_direction = LinkedList::Direction::RIGHT;
@@ -92,6 +96,7 @@ namespace Player
 		void processFoodCollision();
 
 		void onFoodCollected(Food::FoodType food_type);
+		int getRandomBodyPartIndex();
 		
 		void handleRestart();
 		void reset();

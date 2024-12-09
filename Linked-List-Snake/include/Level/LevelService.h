@@ -16,8 +16,10 @@ namespace Level
         void render();
 
         void createLevel(LevelNumber level_to_load);
+        
         float getCellWidth();
         float getCellHeight();
+        LevelNumber getCurrentLevel();
 
     private:
         LevelController* level_controller;

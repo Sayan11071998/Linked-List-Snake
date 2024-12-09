@@ -25,6 +25,10 @@ namespace Element
 			obstacle_list[i]->render();
 	}
 
+	void ElementService::reset()
+	{
+	}
+
 	const void ElementService::spawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height)
 	{
 		for (int i = 0; i < element_data_list.size(); i++)
@@ -43,6 +47,10 @@ namespace Element
 		Obstacle* obstacle = new Obstacle();
 		obstacle->initialize(position, cell_width, cell_height);
 		obstacle_list.push_back(obstacle);
+	}
+
+	void ElementService::destroy()
+	{
 	}
 
 	std::vector<sf::Vector2i> ElementService::getElementPositionList()

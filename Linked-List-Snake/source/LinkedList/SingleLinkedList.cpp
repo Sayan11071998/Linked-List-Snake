@@ -368,6 +368,10 @@ namespace LinkedList
 		}
 	}
 
+	void SingleLinkedList::updateNodes(Direction directionToSet)
+	{
+	}
+
 	int SingleLinkedList::findMiddleNode()
 	{
 		Node* slow = head_node;
@@ -385,6 +389,11 @@ namespace LinkedList
 	}
 
 	Node* SingleLinkedList::getHeadNode() { return head_node; }
+
+	int SingleLinkedList::getLinkedListSize()
+	{
+		return 0;
+	}
 
 	std::vector<sf::Vector2i> SingleLinkedList::getNodesPositionList()
 	{
