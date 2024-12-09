@@ -9,7 +9,7 @@ namespace Element
 {
 	ElementService::ElementService() = default;
 
-	ElementService::~ElementService() = default;
+	ElementService::~ElementService() { destroy(); }
 
 	void ElementService::initialize() {}
 
@@ -27,6 +27,8 @@ namespace Element
 
 	const void ElementService::spawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height)
 	{
+		reset();
+
 		for (int i = 0; i < element_data_list.size(); i++)
 		{
 			switch (element_data_list[i].element_type)
@@ -49,9 +51,27 @@ namespace Element
 	{
 		std::vector<sf::Vector2i> element_position_list;
 		for (int i = 0; i < obstacle_list.size(); i++)
-		{
 			element_position_list.push_back(obstacle_list[i]->getObstaclePosition());
-		}
 		return element_position_list;
+	}
+
+	bool ElementService::processElementsCollision(LinkedList::Node* head_node)
+	{
+		for (int i = 0; i < obstacle_list.size(); i++)
+		{
+			if (obstacle_list[i]->getObstaclePosition() == head_node->body_part.getNextPosition() || obstacle_list[i]->getObstaclePosition() == head_node->body_part.getPosition())
+				return true;
+		}
+
+		return false;
+	}
+
+	void ElementService::reset() { destroy(); }
+
+	void ElementService::destroy()
+	{
+		for (int i = 0; i < obstacle_list.size(); i++)
+			delete(obstacle_list[i]);
+		obstacle_list.clear();
 	}
 }

@@ -1,9 +1,10 @@
 #include "Food/FoodService.h"
 #include "Global/ServiceLocator.h"
 #include "Food/FoodItem.h"
-#include "Food/FoodType.h"
 #include "Level/LevelModel.h"
 #include "Player/PlayerService.h"
+#include "Food/FoodType.h"
+#include <iostream>
 
 namespace Food
 {
@@ -12,10 +13,7 @@ namespace Food
 	using namespace Level;
 	using namespace Player;
 
-	FoodService::FoodService() : random_engine(random_device())
-	{
-		current_food_item = nullptr;
-	}
+	FoodService::FoodService() : random_engine(random_device()) { current_food_item = nullptr; }
 
 	FoodService::~FoodService() { destroyFood(); }
 
@@ -50,6 +48,16 @@ namespace Food
 		reset();
 	}
 
+	bool FoodService::processFoodCollision(LinkedList::Node* head_node, FoodType& out_food_type)
+	{
+		if (current_food_item && current_food_item->getFoodPosition() == head_node->body_part.getPosition())
+		{
+			out_food_type = current_food_item->getFoodType();
+			return true;
+		}
+		return false;
+	}
+
 	FoodItem* FoodService::createFood(sf::Vector2i position, FoodType type)
 	{
 		FoodItem* food = new FoodItem();
@@ -57,10 +65,7 @@ namespace Food
 		return food;
 	}
 
-	void FoodService::spawnFood()
-	{
-		current_food_item = createFood(getValidSpawnPosition(), getRandomFoodType());
-	}
+	void FoodService::spawnFood() { current_food_item = createFood(getValidSpawnPosition(), getRandomFoodType()); }
 
 	sf::Vector2i FoodService::getValidSpawnPosition()
 	{
@@ -87,7 +92,24 @@ namespace Food
 
 	FoodType FoodService::getRandomFoodType()
 	{
-		std::uniform_int_distribution<int> distribution(0, FoodItem::number_of_foods - 1);
+		if (ServiceLocator::getInstance()->getPlayerService()->isSnakeSizeMinimum())
+		{
+			int randomValue = std::rand() % (FoodItem::number_of_foods - FoodItem::number_of_healthy_foods);
+			return static_cast<FoodType>(randomValue);
+		}
+		else
+		{
+			int randomValue = std::rand() % (FoodItem::number_of_foods);
+			return static_cast<FoodType>(randomValue);
+		}
+
+		int food_upper_index;
+		if (!ServiceLocator::getInstance()->getPlayerService()->isSnakeSizeMinimum())
+			food_upper_index = FoodItem::number_of_foods - 5;
+		else
+			food_upper_index = FoodItem::number_of_foods - 1;
+
+		std::uniform_int_distribution<int> distribution(0, food_upper_index);
 		return static_cast<FoodType>(distribution(random_engine));
 	}
 
@@ -98,7 +120,12 @@ namespace Food
 		return true;
 	}
 
-	void FoodService::destroyFood() { if (current_food_item) delete(current_food_item); }
+	void FoodService::destroyFood()
+	{
+		if (current_food_item)
+			delete(current_food_item);
+		current_food_item = nullptr;
+	}
 	
 	void FoodService::updateElaspedDuration()
 	{
