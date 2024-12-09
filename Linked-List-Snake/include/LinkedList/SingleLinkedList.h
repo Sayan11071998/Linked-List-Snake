@@ -64,7 +64,6 @@ namespace LinkedList
 		sf::Vector2i getNewNodePosition(Node* reference_node, Operation operation);
 		Direction getReverseDirection(Direction reference_direction);
 
-		void updateNodes(Direction directionToSet);
 		int findMiddleNode();
 	};
 }

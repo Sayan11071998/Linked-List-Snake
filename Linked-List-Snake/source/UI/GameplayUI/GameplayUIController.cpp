@@ -138,10 +138,10 @@ namespace UI
 
         void GameplayUIController::update()
         {
-            level_number_text->update();
-            score_text->update();
-            time_complexity_text->update();
-            operation_text->update();
+            updateLevelNumberText();
+            updateScoreText();
+            updateTimeComplexityText();
+            updateOperationText();
         }
 
         void GameplayUIController::render()
