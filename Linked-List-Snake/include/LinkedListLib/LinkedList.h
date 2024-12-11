@@ -52,7 +52,7 @@ namespace LinkedListLib
 		float node_height;
 
 		sf::Vector2i default_position;
-		Direction default_dirction;
+		Direction default_direction;
 
 		int linked_list_size;
 
