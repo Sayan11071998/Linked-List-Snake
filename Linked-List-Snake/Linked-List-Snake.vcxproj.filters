@@ -251,5 +251,8 @@
     <ClInclude Include="include\UI\LinkedListUI\LinkedListSelectionUIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\LinkedListLib\SingleLinked\SingleLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

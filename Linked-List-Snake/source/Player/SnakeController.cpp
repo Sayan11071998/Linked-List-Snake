@@ -23,6 +23,10 @@ namespace Player
 
 	SnakeController::~SnakeController() { destroy(); }
 
+	void SnakeController::initializeLinkedList()
+	{
+	}
+
 	void SnakeController::createLinkedList() { single_linked_list = new SingleLinkedList(); }
 
 	void SnakeController::initialize()

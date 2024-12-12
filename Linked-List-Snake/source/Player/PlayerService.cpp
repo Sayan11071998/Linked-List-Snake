@@ -31,6 +31,11 @@ namespace Player
 
 	LinkedListOperations PlayerService::getLastOperation() { return snake_controller->getLastOperation(); }
 
+	bool PlayerService::isPlayerDead()
+	{
+		return false;
+	}
+
 	SnakeState PlayerService::getSnakeState() { return snake_controller->getSnakeState(); }
 
 	bool PlayerService::isSnakeSizeMinimum() { return snake_controller->isSnakeSizeMinimum(); }
