@@ -8,10 +8,7 @@ namespace LinkedListLib
 {
 	namespace DoubleLinked
 	{
-		Node* DoubleLinkedList::createNode()
-		{
-			return new DoubleNode();
-		}
+		Node* DoubleLinkedList::createNode() { return new DoubleNode(); }
 
 		DoubleLinkedList::DoubleLinkedList() = default;
 
