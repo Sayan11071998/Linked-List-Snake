@@ -1,5 +1,5 @@
 #pragma once
-#include "LevelNumber.h"
+#include "Level/LevelConfig.h"
 
 namespace Level
 {
@@ -16,14 +16,17 @@ namespace Level
         void render();
 
         void createLevel(LevelNumber level_to_load);
+        void setCurrentLevelNumber(LevelNumber level_to_load);
         
         float getCellWidth();
         float getCellHeight();
         LevelNumber getCurrentLevel();
+        LinkedListType getCurrentLinkedListType();
 
     private:
         LevelController* level_controller;
         LevelNumber current_level;
+        LinkedListType current_linked_list_type;
 
         void createLevelController();
         void spawnPlayer();

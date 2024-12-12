@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "SFML/System/Vector2.hpp"
-#include "LinkedList/Node.h"
+#include "LinkedListLib/Node.h"
 
 namespace Element
 {
@@ -22,7 +22,7 @@ namespace Element
 		const void spawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height);
 		std::vector<sf::Vector2i> getElementPositionList();
 
-		bool processElementsCollision(LinkedList::Node* head_node);
+		bool processElementsCollision(LinkedListLib::Node* head_node);
 
 	private:
 		std::vector<Obstacle*> obstacle_list;

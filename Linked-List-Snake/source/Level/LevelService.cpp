@@ -35,11 +35,20 @@ namespace Level
 		spawnFood();
 	}
 
+	void LevelService::setCurrentLevelNumber(LevelNumber level_to_load)
+	{
+	}
+
 	float LevelService::getCellWidth() { return level_controller->getCellWidth(); }
 
 	float LevelService::getCellHeight() { return level_controller->getCellHeight(); }
 
 	LevelNumber LevelService::getCurrentLevel() { return current_level; }
+
+	LinkedListType LevelService::getCurrentLinkedListType()
+	{
+		return LinkedListType();
+	}
 
 	void LevelService::spawnPlayer() { ServiceLocator::getInstance()->getPlayerService()->spawnPlayer(); }
 
