@@ -13,10 +13,7 @@ namespace UI
             ImageView::initialize(texture_path, image_width, image_height, position);
         }
 
-        void AnimatedImageView::registerCallbackFuntion(CallbackFunction animation_end_callback)
-        {
-            callback_function = animation_end_callback;
-        }
+        void AnimatedImageView::registerCallbackFuntion(CallbackFunction animation_end_callback) { callback_function = animation_end_callback; }
 
         void AnimatedImageView::update()
         {
@@ -49,8 +46,7 @@ namespace UI
 
         void AnimatedImageView::handleAnimationProgress()
         {
-            if (elapsed_duration >= animation_duration && callback_function)
-                callback_function();
+            if (elapsed_duration >= animation_duration && callback_function) { callback_function(); }
         }
 
         void AnimatedImageView::updateAnimation()

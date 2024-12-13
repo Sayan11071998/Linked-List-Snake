@@ -9,7 +9,6 @@ namespace UI
 		class GameplayUIController : public Interface::IUIController
 		{
 		private:
-			// Constants:
 			const float font_size = 60.f;
 
 			const float text_y_position = 7.f;
@@ -52,3 +51,4 @@ namespace UI
 		};
 	}
 }
+

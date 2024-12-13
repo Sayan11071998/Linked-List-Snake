@@ -26,8 +26,7 @@ namespace UI
         {
             ImageView::update();
 
-            if (ui_state == UIState::VISIBLE)
-                handleButtonInteraction();
+            if (ui_state == UIState::VISIBLE) { handleButtonInteraction(); }
         }
 
         void ButtonView::render() { ImageView::render(); }
@@ -37,17 +36,17 @@ namespace UI
             sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
 
             if (clickedButton(&image_sprite, mouse_position))
+            {
                 if (callback_function) callback_function();
+            }
         }
 
         bool ButtonView::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
         {
-            return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
+            return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() &&
+                button_sprite->getGlobalBounds().contains(mouse_position);
         }
 
-        void ButtonView::printButtonClicked()
-        {
-            printf("Clicked %s\n", button_title.toAnsiString().c_str());
-        }
+        void ButtonView::printButtonClicked() { printf("Clicked %s\n", button_title.toAnsiString().c_str()); }
     }
 }

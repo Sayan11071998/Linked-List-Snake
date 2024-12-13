@@ -12,7 +12,6 @@ namespace UI
 		class CreditsScreenUIController : public Interface::IUIController
 		{
 		private:
-			// Constants:
 			const sf::String game_title = "Outscal Presents - Snake Game";
 
 			const float text_top_offset = 240.f;

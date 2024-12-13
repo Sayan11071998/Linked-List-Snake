@@ -25,8 +25,7 @@ namespace UI
 		{
 			UIView::render();
 
-			if (ui_state == UIState::VISIBLE)
-				game_window->draw(rectangle_shape);
+			if (ui_state == UIState::VISIBLE) { game_window->draw(rectangle_shape); }
 		}
 
 		void RectangleShapeView::setSize(sf::Vector2f rectangle_size) { rectangle_shape.setSize(rectangle_size); }
