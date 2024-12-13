@@ -240,6 +240,11 @@ namespace Player
 
 	int SnakeController::getPlayerScore() { return player_score; }
 
+	bool SnakeController::isSnakeDead()
+	{
+		return current_snake_state == SnakeState::DEAD;
+	}
+
 	TimeComplexity SnakeController::getTimeComplexity() { return time_complexity; }
 
 	LinkedListOperations SnakeController::getLastOperation() { return last_linked_list_operation; }

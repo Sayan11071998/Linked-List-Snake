@@ -15,7 +15,7 @@ namespace Level
         void update();
         void render();
 
-        void createLevel(LevelNumber level_to_load);
+        void createLevel(LinkedListType linked_list_type);
         void setCurrentLevelNumber(LevelNumber level_to_load);
         
         float getCellWidth();

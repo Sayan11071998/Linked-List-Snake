@@ -17,6 +17,7 @@ namespace UI
 			void initialize() override;
 			void update() override;
 			void render() override;
+			void show() override;
 
 		private:
 			const float button_width = 400.f;
