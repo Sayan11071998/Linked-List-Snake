@@ -77,10 +77,7 @@ namespace UI
             GameService::setGameState(GameState::INSTRUCTIONS);
         }
 
-        void MainMenuUIController::quitButtonCallback()
-        {
-            ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->close();
-        }
+        void MainMenuUIController::quitButtonCallback() { ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->close(); }
 
         void MainMenuUIController::update()
         {

@@ -31,8 +31,7 @@ namespace UI
 		{
 			UIView::render();
 
-			if (ui_state == UIState::VISIBLE)
-				game_window->draw(text);
+			if (ui_state == UIState::VISIBLE) { game_window->draw(text); }
 		}
 
 		void TextView::initializeTextView() { loadFont(); }

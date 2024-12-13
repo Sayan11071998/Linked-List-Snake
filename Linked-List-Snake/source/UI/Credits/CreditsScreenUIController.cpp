@@ -78,10 +78,7 @@ namespace UI
             GameService::setGameState(GameState::MAIN_MENU);
         }
 
-        void CreditsScreenUIController::quitButtonCallback()
-        {
-            ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->close();
-        }
+        void CreditsScreenUIController::quitButtonCallback() { ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->close(); }
 
         void CreditsScreenUIController::update()
         {

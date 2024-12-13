@@ -59,7 +59,7 @@ namespace UI
 
         void GameplayUIController::initializeOperationText()
         {
-            operation_text->initialize("Last Operation: Insert at Middle", sf::Vector2f(operations_text_x_position, operations_text_y_position), FontType::BUBBLE_BOBBLE, operations_font_size, sf::Color::Black);
+            operation_text->initialize("Last Operation : Insert at Middle", sf::Vector2f(operations_text_x_position, operations_text_y_position), FontType::BUBBLE_BOBBLE, operations_font_size, sf::Color::Black);
         }
 
         void GameplayUIController::updateLevelNumberText()
@@ -87,12 +87,12 @@ namespace UI
 
             switch (time_complexity)
             {
-            case Player::TimeComplexity::NONE:
+            case TimeComplexity::NONE:
                 time_complexity_value = "";
-            case Player::TimeComplexity::ONE:
+            case TimeComplexity::ONE:
                 time_complexity_value = "1";
                 break;
-            case Player::TimeComplexity::N:
+            case TimeComplexity::N:
                 time_complexity_value = "N";
                 break;
             }
@@ -107,33 +107,37 @@ namespace UI
 
             switch (operation)
             {
-            case Player::LinkedListOperations::NONE:
+            case LinkedListOperations::NONE:
                 operation_value = "";
-            case Player::LinkedListOperations::INSERT_AT_HEAD:
+            case LinkedListOperations::INSERT_AT_HEAD:
                 operation_value = "Insert at Head";
                 break;
-            case Player::LinkedListOperations::INSERT_AT_TAIL:
+            case LinkedListOperations::INSERT_AT_TAIL:
                 operation_value = "Insert at Tail";
                 break;
-            case Player::LinkedListOperations::INSERT_AT_MID:
+            case LinkedListOperations::INSERT_AT_MID:
                 operation_value = "Insert at Mid";
                 break;
-            case Player::LinkedListOperations::REMOVE_AT_HEAD:
+            case LinkedListOperations::REMOVE_AT_HEAD:
                 operation_value = "Remove at Head";
                 break;
-            case Player::LinkedListOperations::REMOVE_AT_TAIL:
+            case LinkedListOperations::REMOVE_AT_TAIL:
                 operation_value = "Remove at Tail";
                 break;
-            case Player::LinkedListOperations::REMOVE_AT_MID:
+            case LinkedListOperations::REMOVE_AT_MID:
                 operation_value = "Remove at Mid";
                 break;
-            case Player::LinkedListOperations::DELETE_HALF_LIST:
+            case LinkedListOperations::DELETE_HALF_LIST:
                 operation_value = "Delete Half List";
                 break;
-            case Player::LinkedListOperations::REVERSE_LIST:
+            case LinkedListOperations::REVERSE_LIST:
                 operation_value = "Reverse List";
                 break;
+
             }
+
+            operation_text->setText("Last Operation : " + operation_value);
+            operation_text->update();
         }
 
         void GameplayUIController::update()
