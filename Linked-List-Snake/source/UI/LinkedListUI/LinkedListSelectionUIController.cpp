@@ -25,10 +25,7 @@ namespace UI
             createImage();
         }
 
-        LinkedListSelectionUIController::~LinkedListSelectionUIController()
-        {
-            destroy();
-        }
+        LinkedListSelectionUIController::~LinkedListSelectionUIController() { destroy(); }
 
         void LinkedListSelectionUIController::initialize()
         {
@@ -37,10 +34,7 @@ namespace UI
             registerButtonCallback();
         }
 
-        void LinkedListSelectionUIController::createImage()
-        {
-            background_image = new ImageView();
-        }
+        void LinkedListSelectionUIController::createImage() { background_image = new ImageView(); }
 
         void LinkedListSelectionUIController::createButtons()
         {
@@ -61,8 +55,8 @@ namespace UI
         {
             float x_position = calculateLeftOffsetForButton();
 
-            single_linked_list_button->initialize("Single Linked List Button", Config::single_linked_list_button_texture_path, button_width, button_height, sf::Vector2f(x_position, single_linked_list_button_y_position));
-            double_linked_list_button->initialize("Double Linked List Button", Config::double_linked_list_button_texture_path, button_width, button_height, sf::Vector2f(x_position, double_linked_list_button_y_position));
+            single_linked_list_button->initialize("Single Linked List Button", Config::single_linked_list_button_texture_path, button_width, button_height, sf::Vector2f(x_position, single_linked_list_butoon_y_position));
+            double_linked_list_button->initialize("Double Linked List Button", Config::double_linked_list_button_texture_path, button_width, button_height, sf::Vector2f(x_position, double_linked_list_butoon_y_position));
             menu_button->initialize("Menu Button", Config::menu_button_texture_path, button_width, button_height, sf::Vector2f(x_position, menu_button_y_position));
         }
 

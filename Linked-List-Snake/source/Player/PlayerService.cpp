@@ -3,6 +3,8 @@
 
 namespace Player
 {
+	using namespace Level;
+
 	PlayerService::PlayerService()
 	{
 		snake_controller = nullptr;
@@ -19,7 +21,11 @@ namespace Player
 
 	void PlayerService::render() { snake_controller->render(); }
 
-	void PlayerService::spawnPlayer() { snake_controller->spawnSnake(); }
+	void PlayerService::spawnPlayer(LinkedListType level_type)
+	{
+		snake_controller->createLinkedList(level_type);
+		snake_controller->spawnSnake();
+	}
 
 	std::vector<sf::Vector2i> PlayerService::getCurrentSnakePositionList() { return snake_controller->getCurrentSnakePositionList(); }
 
@@ -31,10 +37,7 @@ namespace Player
 
 	LinkedListOperations PlayerService::getLastOperation() { return snake_controller->getLastOperation(); }
 
-	bool PlayerService::isPlayerDead()
-	{
-		return false;
-	}
+	bool PlayerService::isPlayerDead() { return snake_controller->isSnakeDead(); }
 
 	SnakeState PlayerService::getSnakeState() { return snake_controller->getSnakeState(); }
 

@@ -6,6 +6,7 @@
 #include "UI/UIElement/ButtonView.h"
 #include "UI/UIElement/ImageView.h"
 #include "Global/Config.h"
+#include "Level/LevelConfig.h"
 #include "Level/LevelService.h"
 
 namespace UI
@@ -15,6 +16,7 @@ namespace UI
     using namespace Event;
     using namespace Sound;
     using namespace Main;
+    using namespace Level;
 
     namespace LevelSelection
     {
