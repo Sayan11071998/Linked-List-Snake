@@ -13,7 +13,7 @@
 ### *👉 ⚡ Intense Gameplay:* Dodge obstacles and avoid self-collision—because if you don’t, it’s game over 💔.
 
 ## **✨ Why I’m Proud of This Project:**
-- ### *💡 Data Structures in Action:* Mastered Linked Lists and explored STL vectors, all while solving complex challenges.
+- *💡 Data Structures in Action:* Mastered Linked Lists and explored STL vectors, all while solving complex challenges.
 - *🧩 Clean Code:* Applied OOP principles to create scalable, modular, and flexible code.
 - *🎨 Game Dev Skills:* Brought the game to life with smooth visuals, animations, and immersive sound effects using SFML.
 - *🚀 Level Design:* Created multiple levels with unique obstacles and layouts, enhancing replayability and player engagement.
