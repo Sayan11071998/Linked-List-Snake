@@ -48,7 +48,6 @@ Super excited (and a little nostalgic) to share my latest project: **Linked List
   - STL Vector
 
 [![Watch the video](https://img.youtube.com/vi/Dq414KbkRGU/maxresdefault.jpg)](https://youtu.be/Dq414KbkRGU)
-
 ### [Gameplay Video](https://youtu.be/Dq414KbkRGU)
 
 ![LinkedList_Snake2D_01](https://github.com/user-attachments/assets/c2ae8fe6-7523-4641-9779-1788a9af9b97)
